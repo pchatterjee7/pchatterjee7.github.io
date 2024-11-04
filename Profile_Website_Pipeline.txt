@@ -1,0 +1,101 @@
+
+# Personal Profile Website Setup Pipeline
+
+This document provides a step-by-step pipeline for setting up, authenticating, and managing a personal profile website on GitHub Pages. Save this document in your GitHub repository for easy access and editing.
+
+---
+
+## Step 1: Set Up GitHub Repository
+
+1. **Create a New Repository**:
+   - Go to your GitHub profile and click on "Repositories" > "New" button.
+   - Name the repository `username.github.io` (e.g., `pchatterjee7.github.io`).
+   - Choose "Public" and click "Create repository".
+
+## Step 2: Prepare Local Project Files
+
+1. **Create a Folder**: Create a local project folder (e.g., `PersonalWebsite`).
+2. **Add HTML and CSS Files**:
+   - Inside the folder, create `index.html` and a `css` subfolder with `style.css`.
+   - Add your website code, such as the About, Projects, Skills, Contact, and Publications sections.
+
+## Step 3: Open Files in VS Code
+
+1. **Open VS Code**: Launch VS Code and open your project folder.
+2. **Edit `index.html` and `style.css`**: Add content and styles for your profile, saving any changes as you go.
+
+## Step 4: GitHub Authentication with Personal Access Token
+
+Since GitHub removed password authentication over HTTPS, you'll need to use a Personal Access Token (PAT).
+
+1. **Generate a Personal Access Token (PAT)**:
+   - Go to [GitHub’s Personal Access Tokens settings](https://github.com/settings/tokens).
+   - Click "Generate new token", give it a name, set an expiration, and select "repo" scope.
+   - Click "Generate token" and **copy the token** to a secure place.
+
+2. **Push Using PAT**:
+   - Run `git push -u origin main`.
+   - When prompted for a username, enter your GitHub username.
+   - When prompted for a password, paste the PAT instead of your GitHub password.
+
+## Step 5: Cache Credentials (Optional)
+
+To avoid entering your PAT every time, configure Git to cache it:
+```bash
+git config --global credential.helper cache
+```
+Or store it permanently (use only on secure devices):
+```bash
+git config --global credential.helper store
+```
+
+## Step 6: Add Google Scholar and LinkedIn Links to Your Profile
+
+Add your Google Scholar and LinkedIn links to the Contact or Publications section in `index.html`:
+```html
+<p><a href="https://scholar.google.com/citations?user=YlVon4IAAAAJ&hl=en" target="_blank">Google Scholar Profile</a></p>
+<p><a href="https://www.linkedin.com/in/paramitachatterjee2022/" target="_blank">LinkedIn Profile</a></p>
+```
+
+## Step 7: Initializing Git and Pushing Changes
+
+1. **Initialize Git**:
+   ```bash
+   git init
+   ```
+2. **Add and Commit Changes**:
+   ```bash
+   git add .
+   git commit -m "Initial commit for profile website"
+   ```
+3. **Add Remote Repository**:
+   ```bash
+   git remote add origin https://github.com/username/username.github.io.git
+   ```
+4. **Push to GitHub**:
+   ```bash
+   git push -u origin main
+   ```
+
+---
+
+## Step 8: Enable GitHub Pages
+
+1. **Go to Repository Settings** > "Pages".
+2. Under "Source", select the main branch and save.
+3. Your website will be live at `https://username.github.io`.
+
+## Step 9: Updating and Maintaining
+
+1. **Make Changes Locally**: Edit `index.html` or `style.css` as needed.
+2. **Push Updates**:
+   ```bash
+   git add .
+   git commit -m "Update content"
+   git push
+   ```
+
+---
+
+This pipeline serves as a compact guide for setting up, authenticating, and managing a personal profile website on GitHub Pages. Use it as a foundation and expand upon it as needed.
+
